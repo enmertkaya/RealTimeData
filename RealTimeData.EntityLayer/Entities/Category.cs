@@ -1,4 +1,4 @@
-﻿namespace RealTimeDataApi.DAL.Entities
+﻿namespace RealTimeData.EntityLayer.Entities
 {
     public class Category
     {
