@@ -3,17 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealTimeDataApi", "RealTimeDataApi\RealTimeDataApi.csproj", "{8160BC7D-79CE-4872-9EC2-B0A4EBCE65D2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RealTimeDataWebUI", "RealTimeDataWebUI\RealTimeDataWebUI.csproj", "{F54F7B63-20A8-4AC3-B79A-E7CE415AC4E4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealTimeDataWebUI", "RealTimeDataWebUI\RealTimeDataWebUI.csproj", "{F54F7B63-20A8-4AC3-B79A-E7CE415AC4E4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RealTimeData.EntityLayer", "RealTimeData.EntityLayer\RealTimeData.EntityLayer.csproj", "{619A64F5-EC4E-4F3B-8216-7E17706B74E2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealTimeData.EntityLayer", "RealTimeData.EntityLayer\RealTimeData.EntityLayer.csproj", "{619A64F5-EC4E-4F3B-8216-7E17706B74E2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RealTimeData.DataAccessLayer", "RealTimeData.DataAccessLayer\RealTimeData.DataAccessLayer.csproj", "{4761BE25-8A8D-41BE-8C38-A2A50B1CB0C9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealTimeData.DataAccessLayer", "RealTimeData.DataAccessLayer\RealTimeData.DataAccessLayer.csproj", "{4761BE25-8A8D-41BE-8C38-A2A50B1CB0C9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RealTimeData.DtoLayer", "RealTimeData.DtoLayer\RealTimeData.DtoLayer.csproj", "{17B94D7A-F056-445D-9BF6-44CE92C7EACD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealTimeData.DtoLayer", "RealTimeData.DtoLayer\RealTimeData.DtoLayer.csproj", "{17B94D7A-F056-445D-9BF6-44CE92C7EACD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RealTimeData.BusinessLayer", "RealTimeData.BusinessLayer\RealTimeData.BusinessLayer.csproj", "{57696646-DC3B-44A8-A837-6B2667DBF19A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealTimeData.BusinessLayer", "RealTimeData.BusinessLayer\RealTimeData.BusinessLayer.csproj", "{57696646-DC3B-44A8-A837-6B2667DBF19A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealTimeData.Api", "RealTimeData.Api\RealTimeData.Api.csproj", "{27009C92-3438-471E-AA15-D398DCAE3AA7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,10 +21,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{8160BC7D-79CE-4872-9EC2-B0A4EBCE65D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8160BC7D-79CE-4872-9EC2-B0A4EBCE65D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8160BC7D-79CE-4872-9EC2-B0A4EBCE65D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8160BC7D-79CE-4872-9EC2-B0A4EBCE65D2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F54F7B63-20A8-4AC3-B79A-E7CE415AC4E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F54F7B63-20A8-4AC3-B79A-E7CE415AC4E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F54F7B63-20A8-4AC3-B79A-E7CE415AC4E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -45,6 +41,10 @@ Global
 		{57696646-DC3B-44A8-A837-6B2667DBF19A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{57696646-DC3B-44A8-A837-6B2667DBF19A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{57696646-DC3B-44A8-A837-6B2667DBF19A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27009C92-3438-471E-AA15-D398DCAE3AA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27009C92-3438-471E-AA15-D398DCAE3AA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27009C92-3438-471E-AA15-D398DCAE3AA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27009C92-3438-471E-AA15-D398DCAE3AA7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
