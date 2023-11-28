@@ -12,6 +12,9 @@ builder.Services.AddDbContext<RealTimeDataContext>();
 builder.Services.AddScoped<IAboutService,AboutManager>();
 builder.Services.AddScoped<IAboutDal,EfAboutDal>();
 
+builder.Services.AddScoped<IBookingService, BookingManager>();
+builder.Services.AddScoped<IBookingDal, EfBookingDal>();
+
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
