@@ -1,4 +1,5 @@
-﻿using RealTimeData.DataAccessLayer.Abstract;
+﻿using RealTimeData.BusinessLayer.Abstract;
+using RealTimeData.DataAccessLayer.Abstract;
 using RealTimeData.EntityLayer.Entities;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace RealTimeData.BusinessLayer.Concrete
 {
-    public class DiscountManager : IDiscountDal
+    public class DiscountManager : IDiscountService
     {
         private readonly IDiscountDal _discountDal;
 
@@ -17,27 +18,27 @@ namespace RealTimeData.BusinessLayer.Concrete
             _discountDal = discountDal;
         }
 
-        public void Add(Discount entity)
+        public void TAdd(Discount entity)
         {
             _discountDal.Add(entity);
         }
 
-        public void Delete(Discount entity)
+        public void TDelete(Discount entity)
         {
             _discountDal.Delete(entity);
         }
 
-        public Discount GetByID(int id)
+        public Discount TGetByID(int id)
         {
             return _discountDal.GetByID(id);
         }
 
-        public List<Discount> GetListAll()
+        public List<Discount> TGetListAll()
         {
             return _discountDal.GetListAll();
         }
 
-        public void Update(Discount entity)
+        public void TUpdate(Discount entity)
         {
             _discountDal.Update(entity);
         }
