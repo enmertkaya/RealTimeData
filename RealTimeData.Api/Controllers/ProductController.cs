@@ -1,9 +1,12 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using RealTimeData.BusinessLayer.Abstract;
+using RealTimeData.DataAccessLayer.Concrete;
 using RealTimeData.DtoLayer.ProductDto;
 using RealTimeData.EntityLayer.Entities;
+using System.Security.Cryptography.X509Certificates;
 
 namespace RealTimeData.Api.Controllers
 {
@@ -21,11 +24,29 @@ namespace RealTimeData.Api.Controllers
         }
 
         [HttpGet]
-        public IActionResult ProductList ()
+        public IActionResult ProductList()
         {
             var value = _mapper.Map<List<ResultProductDto>>(_productService.TGetListAll());
             return Ok(value);
         }
+
+        [HttpGet("ProductListWithCategory")]
+        public IActionResult ProductListWithCategory()
+        {
+            var context = new RealTimeDataContext();
+            var values = context.Products.Include(x => x.Category).Select(y => new ResultProductWithCategoryDto
+            {
+                Description = y.Description,
+                ImageURL = y.ImageURL,
+                Price = y.Price,
+                ProductID = y.ProductID,
+                ProductName = y.ProductName,
+                ProductStatus = y.ProductStatus,
+                CategoryName = y.Category.CategoryName
+            });
+            return Ok(values.ToList());
+        }
+
         [HttpPost]
         public IActionResult CreateProduct(CreateProductDto createProductDto)
         {
@@ -33,38 +54,44 @@ namespace RealTimeData.Api.Controllers
             {
                 Description = createProductDto.Description,
                 Price = createProductDto.Price,
-                ImageURL=createProductDto.ImageURL,
+                ImageURL = createProductDto.ImageURL,
                 ProductName = createProductDto.ProductName,
                 ProductStatus = true
             });
             return Ok("Urun bilgisi eklendi");
         }
         [HttpDelete]
-        public IActionResult DeleteProduct (int id)
+        public IActionResult DeleteProduct(int id)
         {
             var value = _productService.TGetByID(id);
             _productService.TDelete(value);
             return Ok("Urun bilgisi silindi");
         }
         [HttpPut]
-        public IActionResult UpdateProduct (UpdateProductDto updateProductDto)
+        public IActionResult UpdateProduct(UpdateProductDto updateProductDto)
         {
             _productService.TUpdate(new Product()
             {
-                Description= updateProductDto.Description,
+                Description = updateProductDto.Description,
                 Price = updateProductDto.Price,
-                ImageURL=updateProductDto.ImageURL,
+                ImageURL = updateProductDto.ImageURL,
                 ProductID = updateProductDto.ProductID,
-                ProductName= updateProductDto.ProductName,
+                ProductName = updateProductDto.ProductName,
                 ProductStatus = updateProductDto.ProductStatus
             });
             return Ok("Urun bilgisi guncellendi");
         }
+
         [HttpGet("GetProduct")]
         public IActionResult GetProduct(int id)
         {
-            var value= _productService.TGetByID(id);
-            return Ok(value);
+            var value = _productService.TGetByID(id);
+            {
+                return Ok(value);
+            }
+
         }
+
+       
     }
 }
