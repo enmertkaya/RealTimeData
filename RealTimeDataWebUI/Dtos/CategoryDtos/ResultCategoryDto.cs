@@ -1,4 +1,4 @@
-﻿namespace RealTimeDataWebUI.Dtos.CategoryDtos
+namespace RealTimeDataWebUI.Dtos.CategoryDtos
 {
     public class ResultCategoryDto
     {
