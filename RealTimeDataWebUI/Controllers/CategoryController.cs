@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using RealTimeData.DtoLayer.CategoryDto;
 using RealTimeDataWebUI.Dtos.CategoryDtos;
 using System.Text;
 
@@ -25,7 +26,7 @@ namespace RealTimeDataWebUI.Controllers
             {
 
                 var jsonData= await responseMessage.Content.ReadAsStringAsync();
-                var values= JsonConvert.DeserializeObject<List<ResultCategoryDto>>(jsonData);
+                var values= JsonConvert.DeserializeObject<List<Dtos.CategoryDtos.ResultCategoryDto>>(jsonData);
                 return View(values);
             }
             return View();
@@ -36,7 +37,7 @@ namespace RealTimeDataWebUI.Controllers
             return View();
         }
         [HttpPost]
-		public async Task<IActionResult> CreateCategory (CreateCategoryDto createCategoryDto)
+		public async Task<IActionResult> CreateCategory (Dtos.CategoryDtos.CreateCategoryDto createCategoryDto)
         {
             createCategoryDto.Status = true;
             var client=_httpClientFactory.CreateClient();
@@ -60,6 +61,33 @@ namespace RealTimeDataWebUI.Controllers
             }
             return View();
         }
+        [HttpGet]
+        public async Task<IActionResult> UpdateCategory (int id)
+        {
+            var client = _httpClientFactory.CreateClient();
+            var responseMessage = await client.GetAsync($"https://localhost:7021/api/Category/{id}");
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                var jsonData= await responseMessage.Content.ReadAsStringAsync();
+                var values = JsonConvert.DeserializeObject<Dtos.CategoryDtos.UpdateCategoryDto>(jsonData);
+                return View(values);
+            }
+            return View();
+        }
 
+        [HttpPost]
+        public async Task<IActionResult> UpdateCategory(Dtos.CategoryDtos.UpdateCategoryDto updateCategoryDto)
+        {
+            var client= _httpClientFactory.CreateClient();
+            var jsonData=JsonConvert.SerializeObject(updateCategoryDto);
+            StringContent stringContent=new StringContent(jsonData,Encoding.UTF8,"application/json");
+            var responseMessage = await client.PutAsync("https://localhost:7021/api/Category/", stringContent);
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
+  
 	}
 }
