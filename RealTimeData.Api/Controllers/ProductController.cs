@@ -68,7 +68,19 @@ namespace RealTimeData.Api.Controllers
             _productService.TDelete(value);
             return Ok("Urun bilgisi silindi");
         }
-        [HttpPut]
+
+
+		[HttpGet("{id}")]
+        public IActionResult GetProduct(int id)
+		{
+			var value = _productService.TGetByID(id);
+			{
+				return Ok(value);
+			}
+
+		}
+
+		[HttpPut]
         public IActionResult UpdateProduct(UpdateProductDto updateProductDto)
         {
             _productService.TUpdate(new Product()
@@ -78,20 +90,14 @@ namespace RealTimeData.Api.Controllers
                 ImageURL = updateProductDto.ImageURL,
                 ProductID = updateProductDto.ProductID,
                 ProductName = updateProductDto.ProductName,
-                ProductStatus = updateProductDto.ProductStatus
+                ProductStatus = updateProductDto.ProductStatus,
+                CategoryID=updateProductDto.CategoryID
+                
             });
             return Ok("Urun bilgisi guncellendi");
         }
 
-        [HttpGet("GetProduct")]
-        public IActionResult GetProduct(int id)
-        {
-            var value = _productService.TGetByID(id);
-            {
-                return Ok(value);
-            }
-
-        }
+      
 
        
     }

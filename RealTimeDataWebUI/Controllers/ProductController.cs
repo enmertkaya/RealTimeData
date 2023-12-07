@@ -75,10 +75,24 @@ namespace RealTimeDataWebUI.Controllers
 			return View();
 		}
 		[HttpGet]
-		public async Task<IActionResult> UpdateProduct (int id)
+		public async Task<IActionResult> UpdateProduct(int id)
 		{
+
+			var client1 = _httpClientFactory.CreateClient();
+			var responseMessage1 = await client1.GetAsync("https://localhost:7021/api/Category");
+			var jsonData1 = await responseMessage1.Content.ReadAsStringAsync();
+			var values1 = JsonConvert.DeserializeObject<List<ResultCategoryDto>>(jsonData1);
+			List<SelectListItem> values2 = (from x in values1
+											select new SelectListItem
+											{
+												Text = x.CategoryName,
+												Value = x.CategoryID.ToString()
+											}).ToList();
+			ViewBag.v = values2;
+
+
 			var client = _httpClientFactory.CreateClient();
-			var responseMessage= await client.GetAsync($"https://localhost:7021/api/Product{id}");
+			var responseMessage = await client.GetAsync($"https://localhost:7021/api/Product/{id}");
 			if (responseMessage.IsSuccessStatusCode)
 			{
 				var jsonData = await responseMessage.Content.ReadAsStringAsync();
@@ -86,11 +100,11 @@ namespace RealTimeDataWebUI.Controllers
 				return View(values);
 			}
 			return View();
-		} 
-
+		}
 		[HttpPost]
 		public async Task<IActionResult> UpdateProduct(UpdateProductDto updateProductDto)
 		{
+			updateProductDto.ProductStatus = true;
 			var client = _httpClientFactory.CreateClient();
 			var jsonData = JsonConvert.SerializeObject(updateProductDto);
 			StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
