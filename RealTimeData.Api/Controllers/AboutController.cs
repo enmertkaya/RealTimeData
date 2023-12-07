@@ -16,52 +16,50 @@ namespace RealTimeData.Api.Controllers
         {
             _aboutService = aboutService;
         }
-        [HttpGet]
-        public IActionResult AboutList()
-        {
-            var value = _aboutService.TGetListAll();
-            return Ok(value);
-        }
-        [HttpPost]
-        public IActionResult CreateAbout(CreateAboutDto createAboutDto)
-        {
-            About about = new About()
-            {
-               Description = createAboutDto.Description,
-               ImageURL=createAboutDto.ImageUrl,
-               Title = createAboutDto.Title
-            };
+		[HttpGet]
+		public IActionResult AboutList()
+		{
+			var values = _aboutService.TGetListAll();
+			return Ok(values);
+		}
+		[HttpPost]
+		public IActionResult CreateAbout(CreateAboutDto createAboutDto)
+		{
+			About about = new About()
+			{
+				Title = createAboutDto.Title,
+				Description = createAboutDto.Description,
+				ImageURL = createAboutDto.ImageUrl
+			};
+			_aboutService.TAdd(about);
+			return Ok("Hakkımda Kısmı Başarılı Bir Şekilde Eklendi");
+		}
+		[HttpDelete("{id}")]
+		public IActionResult DeleteAbout(int id)
+		{
+			var value = _aboutService.TGetByID(id);
+			_aboutService.TDelete(value);
+			return Ok("Hakkımda Alanı Silindi");
+		}
+		[HttpPut]
+		public IActionResult UpdateAbout(UpdateAboutDto updateAboutDto)
+		{
+			About about = new About()
+			{
+				AboutID = updateAboutDto.AboutID,
+				ImageURL = updateAboutDto.ImageUrl,
+				Description = updateAboutDto.Description,
+				Title = updateAboutDto.Title
+			};
+			_aboutService.TUpdate(about);
+			return Ok("Hakkımda Alanı Güncellendi");
+		}
+		[HttpGet("{id}")]
+		public IActionResult GetAbout(int id)
+		{
+			var value = _aboutService.TGetByID(id);
+			return Ok(value);
+		}
 
-            _aboutService.TAdd(about);
-            return Ok("Hakkimda kismi basarili bir sekilde eklendi");
-
-        }
-        [HttpDelete]
-        public IActionResult DeleteAbout(int id)
-        {
-            var valıe=_aboutService.TGetByID(id);
-            _aboutService.TDelete(valıe);
-            return Ok("Hakkimda alani silindi");
-        }
-        [HttpPut]
-        public IActionResult UpdateAbout(UpdateAboutDto updateAboutDto)
-        {
-            About about = new About()
-            {
-                AboutID = updateAboutDto.AboutID,
-                Title = updateAboutDto.Title,
-                ImageURL = updateAboutDto.ImageUrl,
-                Description=updateAboutDto.Description
-            };
-            _aboutService.TUpdate(about);
-            return Ok("Hakkimda alani guncellendi");
-        }
-        [HttpGet("GetAbout")]
-        public IActionResult GetAbout(int id)
-        {
-            var value=_aboutService.TGetByID(id);
-            return Ok(value);
-        }
-
-    }
+	}
 }
