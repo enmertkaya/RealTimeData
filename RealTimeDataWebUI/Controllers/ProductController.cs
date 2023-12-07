@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Newtonsoft.Json;
+using RealTimeDataWebUI.Dtos.CategoryDtos;
 using RealTimeDataWebUI.Dtos.ProductDtos;
 using System.Text;
 
@@ -30,8 +32,19 @@ namespace RealTimeDataWebUI.Controllers
 		}
 
 		[HttpGet]
-		public IActionResult CreateProduct() 
+		public async Task<IActionResult> CreateProduct() 
 		{ 
+			var client=_httpClientFactory.CreateClient();
+			var responseMessage = await client.GetAsync("https://localhost:7021/api/Category");
+			var jsonData= await responseMessage.Content.ReadAsStringAsync();
+			var values = JsonConvert.DeserializeObject<List<ResultCategoryDto>>(jsonData);
+			List<SelectListItem> values2= (from x  in values
+										   select new SelectListItem
+										   {
+												Text=x.CategoryName,
+												Value=x.CategoryID.ToString()
+										   }).ToList();
+			ViewBag.v = values2;
 			return View();
 		}
 

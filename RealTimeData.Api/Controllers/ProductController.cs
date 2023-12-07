@@ -56,7 +56,8 @@ namespace RealTimeData.Api.Controllers
                 Price = createProductDto.Price,
                 ImageURL = createProductDto.ImageURL,
                 ProductName = createProductDto.ProductName,
-                ProductStatus = true
+                ProductStatus = true,
+                CategoryID=createProductDto.CategoryID
             });
             return Ok("Urun bilgisi eklendi");
         }
