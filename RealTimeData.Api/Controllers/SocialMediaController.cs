@@ -38,7 +38,7 @@ namespace RealTimeData.Api.Controllers
             return Ok("Sosyal medya bilgisi eklendi");
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult DeleteSocialMedia (int id)
         {
             var value=_socialMediaService.TGetByID(id);
@@ -59,7 +59,7 @@ namespace RealTimeData.Api.Controllers
             return Ok("Sosyal medya bilgisi guncellendi");
         }
 
-        [HttpGet("GetSocialMedia")]
+        [HttpGet("{id}")]
         public IActionResult GetSocialMedia(int id)
         {
             var value= _socialMediaService.TGetByID(id) ;
