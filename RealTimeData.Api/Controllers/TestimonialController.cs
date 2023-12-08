@@ -5,6 +5,8 @@ using RealTimeData.BusinessLayer.Abstract;
 using RealTimeData.DtoLayer.TestimonialDto;
 using RealTimeData.EntityLayer.Entities;
 
+
+
 namespace RealTimeData.Api.Controllers
 {
     [Route("api/[controller]")]
@@ -21,56 +23,50 @@ namespace RealTimeData.Api.Controllers
         }
 
         [HttpGet]
-        public IActionResult TestimonialList ()
+        public IActionResult TestimonialList()
         {
-            var value= _mapper.Map<List<CreateTestimonialDto>>(_testimonialService.TGetListAll());
+            var value = _mapper.Map<List<ResultTestimonialDto>>(_testimonialService.TGetListAll());
             return Ok(value);
         }
-
         [HttpPost]
-
-        public IActionResult CreateTestimonial (CreateTestimonialDto createTestimonialDto)
+        public IActionResult CreateTestimonial(CreateTestimonialDto createTestimonialDto)
         {
             _testimonialService.TAdd(new Testimonial()
             {
-                Name = createTestimonialDto.Name,
                 Comment = createTestimonialDto.Comment,
-                Status = true,
-                Title = createTestimonialDto.Title,
-                ImageURL = createTestimonialDto.ImageURL
-                
+                ImageURL = createTestimonialDto.ImageURL,
+                Name = createTestimonialDto.Name,
+                Status = createTestimonialDto.Status,
+                Title = createTestimonialDto.Title
             });
-            return Ok("Testimonial olusturuldu");
+            return Ok("Müşteri Yorum Bilgisi Eklendi");
         }
-
-        [HttpPut]
-        public IActionResult UpdateTestimonial (UpdateTestimonialDto updateTestimonialDto)
+        [HttpDelete("{id}")]
+        public IActionResult DeleteTestimonial(int id)
         {
-            _testimonialService.TUpdate(new Testimonial()
-            {
-                ImageURL = updateTestimonialDto.ImageURL,
-                Status = true,
-                Comment = updateTestimonialDto.Comment,
-                Name = updateTestimonialDto.Name,
-                Title = updateTestimonialDto.Title,
-                TestimonialID=updateTestimonialDto.TestimonialID
-            });
-            return Ok("Testimonial guncellendi");
+            var value =_testimonialService.TGetByID(id);
+           _testimonialService.TDelete(value);
+            return Ok("Müşteri Yorum Bilgisi Silindi");
         }
-
-        [HttpGet("GetTestimonial")]
-        public IActionResult GetTestimonial (int id)
+        [HttpGet("{id}")]
+        public IActionResult GetTestimonial(int id)
         {
-            var value=_testimonialService.TGetByID(id);
+            var value =_testimonialService.TGetByID(id);
             return Ok(value);
         }
-
-        [HttpDelete]
-        public IActionResult DeleteTestimonial(int  id)
+        [HttpPut]
+        public IActionResult UpdateTestimonial(UpdateTestimonialDto updateTestimonialDto)
         {
-            var value=_testimonialService.TGetByID(id);
-            _testimonialService.TDelete(value);
-            return Ok("Testimonial silindi");
+           _testimonialService.TUpdate(new Testimonial()
+            {
+                Comment = updateTestimonialDto.Comment,
+                ImageURL = updateTestimonialDto.ImageURL,
+                Name = updateTestimonialDto.Name,
+                Status = updateTestimonialDto.Status,
+                Title = updateTestimonialDto.Title,
+                TestimonialID = updateTestimonialDto.TestimonialID
+            });
+            return Ok("Müşteri Yorum Bilgisi Güncellendi");
         }
     }
 }
