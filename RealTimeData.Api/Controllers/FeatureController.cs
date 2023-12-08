@@ -30,8 +30,8 @@ namespace RealTimeData.Api.Controllers
         {
             _featureService.TAdd(new Feature()
             {
-                Descripton1=createFeatureDto.Description1,
-                Descripton2=createFeatureDto.Description2,
+                Descripton1 = createFeatureDto.Description1,
+                Descripton2 = createFeatureDto.Description2,
                 Descripton3 = createFeatureDto.Description3,
                 Title1 = createFeatureDto.Title1,
                 Title2 = createFeatureDto.Title2,
@@ -39,7 +39,7 @@ namespace RealTimeData.Api.Controllers
             });
             return Ok("Yorum bilgisi eklendi");
         }
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult DeleteFeature (int id)
         {
             var value=_featureService.TGetByID(id);
@@ -61,7 +61,7 @@ namespace RealTimeData.Api.Controllers
             });
             return Ok("Feature guncellendi");
         }
-        [HttpGet("GetFeature")]
+        [HttpGet("{id}")]
         public IActionResult GetFeature(int id)
         {
             var values=_featureService.TGetByID(id);

@@ -36,7 +36,7 @@ namespace RealTimeData.Api.Controllers
             _bookingService.TAdd(booking);
             return Ok("Rezervasyon yapildi");
         }
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult DeleteBooking(int id)
         {
             var value=_bookingService.TGetByID(id);
@@ -60,8 +60,8 @@ namespace RealTimeData.Api.Controllers
             _bookingService.TUpdate(booking);
             return Ok("Rezervasyon guncellendi");
         }
-        [HttpGet("GetBooking")]
-        public IActionResult GetBooking (int id)
+		[HttpGet("{id}")]
+		public IActionResult GetBooking (int id)
         {
             var value = _bookingService.TGetByID(id);
             return Ok(value);

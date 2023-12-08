@@ -37,7 +37,7 @@ namespace RealTimeData.Api.Controllers
             });
             return Ok("Indirim bilgisi eklendi");
         }
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult DeleteDiscount (int id)
         {
             var value = _discountService.TGetByID(id);
@@ -57,7 +57,7 @@ namespace RealTimeData.Api.Controllers
             });
             return Ok("Iletisim bilgisi guncellendi");
         }
-        [HttpGet("GetDiscount")]
+        [HttpGet("{id}")]
         public IActionResult GetDiscount(int id)
         {
             var value= _discountService.TGetByID(id);
