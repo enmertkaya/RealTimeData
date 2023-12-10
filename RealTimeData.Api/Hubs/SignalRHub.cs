@@ -1,6 +1,9 @@
-﻿namespace RealTimeData.Api.Hubs
+﻿using Microsoft.AspNetCore.SignalR;
+
+namespace RealTimeData.Api.Hubs
 {
-    public class SignalRHub
+    public class SignalRHub : Hub
     {
+
     }
 }
