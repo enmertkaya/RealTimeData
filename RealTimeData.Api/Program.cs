@@ -1,3 +1,4 @@
+using RealTimeData.Api.Hubs;
 using RealTimeData.BusinessLayer.Abstract;
 using RealTimeData.BusinessLayer.Concrete;
 using RealTimeData.DataAccessLayer.Abstract;
@@ -69,5 +70,7 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.MapHub<SignalRHub>("/signalrhub");
 
 app.Run();
