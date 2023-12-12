@@ -24,5 +24,11 @@ namespace RealTimeData.DataAccessLayer.EntityFramework
             var values= context.Products.Include(x=>x.Category).ToList();
             return values;
         }
+
+        public int ProductCount()
+        {
+            using var context = new RealTimeDataContext();
+            return context.Products.Count();
+        }
     }
 }
