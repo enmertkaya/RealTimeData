@@ -30,5 +30,20 @@ namespace RealTimeData.DataAccessLayer.EntityFramework
             using var context = new RealTimeDataContext();
             return context.Products.Count();
         }
+
+        public int ProductCountByCategoryNameDrink()
+        {
+            using var context = new RealTimeDataContext();
+            
+            return context.Products.Where(x => x.CategoryID == (context.Categories.Where(y => y.CategoryName == "Icecek").Select(z => z.CategoryID).FirstOrDefault())).Count();
+
+        }
+
+        public int ProductCountByCategoryNameHamburger()
+        {
+            using var context = new RealTimeDataContext();
+
+            return context.Products.Where(x => x.CategoryID == (context.Categories.Where(y => y.CategoryName == "Hamburger").Select(z => z.CategoryID).FirstOrDefault())).Count();
+        }
     }
 }

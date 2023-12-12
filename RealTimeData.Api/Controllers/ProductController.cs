@@ -85,8 +85,19 @@ namespace RealTimeData.Api.Controllers
             return Ok(_productService.TProductCount());
         }
 
+        [HttpGet("ProductCountByHamburger")]
+        public IActionResult ProductCountByHamburger()
+        {
+            return Ok(_productService.TProductCountByCategoryNameHamburger());
+        }
 
-		[HttpPut]
+        [HttpGet("ProductCountByDrınk")]
+        public IActionResult ProductCountByDrınk()
+        {
+            return Ok(_productService.TProductCountByCategoryNameDrink());
+        }
+
+        [HttpPut]
         public IActionResult UpdateProduct(UpdateProductDto updateProductDto)
         {
             _productService.TUpdate(new Product()
