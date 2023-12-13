@@ -11,6 +11,7 @@ namespace RealTimeData.DataAccessLayer.Abstract
     {
         int TotalOrderCount();
         int ActiveOrderCount();
+        decimal LastOrderPrice();
 
     }
 }
