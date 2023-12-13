@@ -17,6 +17,8 @@ namespace RealTimeData.BusinessLayer.Abstract
         decimal TProductPriceAvg();
         string TProductNameByMaxPrice();
         string TProductNameByMinPrice();
+        decimal TProductAvgPriceByHamburger();
+
 
 
     }

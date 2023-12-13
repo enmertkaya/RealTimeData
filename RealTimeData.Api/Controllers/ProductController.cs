@@ -85,6 +85,12 @@ namespace RealTimeData.Api.Controllers
             return Ok(_productService.TProductCount());
         }
 
+        [HttpGet("ProductAvgPriceByHamburger")]
+        public IActionResult ProductAvgPriceByHamburger()
+        {
+            return Ok(_productService.TProductAvgPriceByHamburger());
+        }
+
         [HttpGet("ProductNameByMaxPrice")]
         public IActionResult ProductNameByMaxPrice()
         {
