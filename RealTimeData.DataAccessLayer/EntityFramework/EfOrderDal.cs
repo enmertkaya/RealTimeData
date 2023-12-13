@@ -15,5 +15,17 @@ namespace RealTimeData.DataAccessLayer.EntityFramework
         public EfOrderDal(RealTimeDataContext context) : base(context)
         {
         }
+
+        public int ActiveOrderCount()
+        {
+            using var context = new RealTimeDataContext();
+            return context.Orders.Where(x=>x.Description=="Müşteri Masada").Count();
+        }
+
+        public int TotalOrderCount()
+        {
+            using var context = new RealTimeDataContext();
+            return context.Orders.Count();
+        }
     }
 }
