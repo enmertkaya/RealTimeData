@@ -4,3 +4,15 @@
 --Pasif Kategori Sayısı
 --Kategori Adına Göre Ürün Sayısı:1
 --Kategori Adına Göre Ürün Sayısı:2
+
+--Ortalama Fiyat
+--En yüksek ürünlü fiyat
+--En düşük ürünlü fiyat
+--Ortalama hamburger fiyatı
+
+--Toplam Sipariş Sayısı
+--Aktif Siparis Sayısı
+--Son siparis tutarı
+--Kasadaki Tutar
+--Bugunku kazanc
+--Masa sayısı
