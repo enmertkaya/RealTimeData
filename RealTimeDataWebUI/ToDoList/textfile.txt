@@ -16,3 +16,14 @@
 --Kasadaki Tutar
 --Bugunku kazanc
 --Masa sayısı
+
+-->Sipariş Detayına Göre Sipariş Tutarı Arttıran Trigger 
+Create Trigger IncreaseOrderTotalPrice
+On OrderDetails
+After Insert
+As
+Declare @OrderID int
+Declare @OrderPrice decimal
+Select @OrderID=OrderID from inserted
+Select @OrderPrice=TotalPrice from inserted
+Update Orders Set TotalPrice=TotalPrice+@OrderPrice Where OrderID=@OrderID
