@@ -14,6 +14,13 @@ namespace RealTimeData.DataAccessLayer.EntityFramework
     {
         public EfMenuTableDal(RealTimeDataContext context) : base(context)
         {
+
+        }
+
+        public int MenuTableCount()
+        {
+            using var context = new RealTimeDataContext();
+            return context.MenuTables.Count();
         }
     }
 }
