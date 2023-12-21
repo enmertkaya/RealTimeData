@@ -29,6 +29,15 @@ namespace RealTimeData.Api.Hubs
 
             var value4 = _categoryService.TPassiveCategoryCount();
             await Clients.All.SendAsync("ReceivePassiveCategoryCount", value4);
+
+            var value5 = _productService.TProductCountByCategoryNameHamburger();
+            await Clients.All.SendAsync("ReceiveProductCountByCategoryNameHamburger", value5);
+
+            var value6 = _productService.TProductCountByCategoryNameDrink();
+            await Clients.All.SendAsync("ReceiveProductCountByCategoryNameDrink", value6);
+
+            var value7 = _productService.TProductPriceAvg();
+            await Clients.All.SendAsync("ReceiveProductPriceAvg", value7);
         }
 
     }
