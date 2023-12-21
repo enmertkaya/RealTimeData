@@ -15,27 +15,21 @@ namespace RealTimeData.Api.Hubs
             _productService = productService;
         }
 
-        public async Task SendCategoryCount()
+        public async Task SendStatistic()
 
         {
             var value=_categoryService.TCategoryCount();
             await Clients.All.SendAsync("ReceiveCategoryCount", value);
-        }
 
-        public async Task SendProductCount()
-
-        {
             var value2 = _productService.TProductCount();
             await Clients.All.SendAsync("ReceiveProductCount", value2);
-        }
 
-        public async Task ActivePassiveCategoryCount ()
-        {
             var value3 = _categoryService.TActiveCategoryCount();
-            var value4 = _categoryService.TPassiveCategoryCount();
             await Clients.All.SendAsync("ReceiveActiveCategoryCount", value3);
-            await Clients.All.SendAsync("ReceivePassiveCategoryCount", value4);
 
+            var value4 = _categoryService.TPassiveCategoryCount();
+            await Clients.All.SendAsync("ReceivePassiveCategoryCount", value4);
         }
+
     }
 }
