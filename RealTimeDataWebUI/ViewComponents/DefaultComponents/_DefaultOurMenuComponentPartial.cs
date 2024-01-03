@@ -1,12 +1,30 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using RealTimeDataWebUI.Dtos.ProductDtos;
+using RealTimeDataWebUI.Dtos.SliderDtos;
 
 namespace RealTimeDataWebUI.ViewComponents.DefaultComponents
 {
     public class _DefaultOurMenuComponentPartial : ViewComponent
     {
-        public IViewComponentResult Invoke()
+        private readonly IHttpClientFactory _httpClientFactory;
+
+        public _DefaultOurMenuComponentPartial(IHttpClientFactory httpClientFactory)
         {
-            return View(); 
+            _httpClientFactory = httpClientFactory;
+        }
+
+
+        public async Task<IViewComponentResult> InvokeAsync()
+        {
+            var client = _httpClientFactory.CreateClient();
+            var responseMessage = await client.GetAsync("https://localhost:7021/api/Product");
+
+            var jsonData = await responseMessage.Content.ReadAsStringAsync();
+            var values = JsonConvert.DeserializeObject<List<ResultProductDto>>(jsonData);
+            return View(values);
+
+            return View();
         }
     }
 }
