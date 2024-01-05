@@ -138,11 +138,12 @@
                 data: {item:id},
                 contentType:'json',
                 success:function(){
-                    alert('Tıkladığınız ürün ID değeri: '+ id);
+                    swal("Seçilen Ürün ID: " + id, "Seçiminizi Yaptınız!", "success");
                 }
             });
         }
     </script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 </body>
 
