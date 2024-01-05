@@ -11,5 +11,6 @@
         public Category Category { get; set; }
         public int CategoryID { get; set; }
         public List<OrderDetail> OrderDetails { get; set; }
+        public List<Basket> Baskets { get; set; }
     }
 }
