@@ -1,4 +1,5 @@
-﻿using RealTimeData.DataAccessLayer.Abstract;
+﻿using Microsoft.EntityFrameworkCore;
+using RealTimeData.DataAccessLayer.Abstract;
 using RealTimeData.DataAccessLayer.Concrete;
 using RealTimeData.DataAccessLayer.Repositories;
 using RealTimeData.EntityLayer.Entities;
@@ -19,7 +20,7 @@ namespace RealTimeData.DataAccessLayer.EntityFramework
         public List<Basket> GetBasketByMenuTableNumber(int id)
         {
             using var context = new RealTimeDataContext();
-            var values= context.Baskets.Where(x=>x.MenuTableID==id).ToList();
+            var values= context.Baskets.Where(x=>x.MenuTableID==id).Include(y=>y.Product).ToList();
             return values;
         }
     }
