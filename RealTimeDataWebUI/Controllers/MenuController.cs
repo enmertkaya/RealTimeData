@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using RealTimeDataWebUI.Dtos.ProductDtos;
+using System.Text;
+using RealTimeDataWebUI.Dtos.BasketDtos;
 
 namespace RealTimeDataWebUI.Controllers
 {
@@ -24,6 +26,22 @@ namespace RealTimeDataWebUI.Controllers
             return View(values);
 
             return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddBasket(int id)
+        {
+            CreateBasketDto createBasketDto = new CreateBasketDto();
+            createBasketDto.ProductID = id;
+            var client = _httpClientFactory.CreateClient();
+            var jsonData = JsonConvert.SerializeObject(createBasketDto);
+            StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
+            var responseMessage = await client.PostAsync("https://localhost:7021/api/Basket", stringContent);
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                return RedirectToAction("Index");
+            }
+            return Json(createBasketDto);
         }
     }
 }

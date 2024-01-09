@@ -4,7 +4,8 @@ using Microsoft.EntityFrameworkCore;
 using RealTimeData.Api.Models;
 using RealTimeData.BusinessLayer.Abstract;
 using RealTimeData.DataAccessLayer.Concrete;
-
+using RealTimeData.DtoLayer.BasketDto;
+using RealTimeData.EntityLayer.Entities;
 
 namespace RealTimeData.Api.Controllers
 {
@@ -13,20 +14,16 @@ namespace RealTimeData.Api.Controllers
     public class BasketController : ControllerBase
     {
         private readonly IBasketService _basketService;
-
         public BasketController(IBasketService basketService)
         {
             _basketService = basketService;
         }
-
         [HttpGet]
         public IActionResult GetBasketByMenuTableID(int id)
         {
-            var values= _basketService.TGetBasketByMenuTableNumber(id);
+            var values = _basketService.TGetBasketByMenuTableNumber(id);
             return Ok(values);
         }
-
-      
         [HttpGet("BasketListByMenuTableWithProductName")]
         public IActionResult BasketListByMenuTableWithProductName(int id)
         {
@@ -42,6 +39,28 @@ namespace RealTimeData.Api.Controllers
                 ProductName = z.Product.ProductName
             }).ToList();
             return Ok(values);
+        }
+        [HttpPost]
+        public IActionResult CreateBasket(CreateBasketDto createBasketDto)
+        {
+            //Bahçe 01 --> 45
+            using var context = new RealTimeDataContext();
+            _basketService.TAdd(new Basket()
+            {
+                ProductID = createBasketDto.ProductID,
+                Count = 1,
+                MenuTableID = 4,
+                Price = context.Products.Where(x => x.ProductID == createBasketDto.ProductID).Select(y => y.Price).FirstOrDefault(),
+                TotalPrice = 0
+            });
+            return Ok();
+        }
+        [HttpDelete("{id}")]
+        public IActionResult DeleteBasket(int id)
+        {
+            var value = _basketService.TGetByID(id);
+            _basketService.TDelete(value);
+            return Ok("Sepetteki Seçilen Ürün Silindi");
         }
     }
 }
