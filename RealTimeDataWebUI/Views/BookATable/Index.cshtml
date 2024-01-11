@@ -1,26 +1,24 @@
 ﻿@model CreateBookingDto
-
-
 @{
     Layout = null;
 }
+
 
 <!DOCTYPE html>
 <html>
 
 @await Component.InvokeAsync("_UILayoutHeadComponentPartial")
 
-
 <body class="sub_page">
-
+    
     @await Component.InvokeAsync("_MenuNavbarComponentPartial")
 
-    <!-- book section -->
+    
     <section class="book_section layout_padding">
         <div class="container">
             <div class="heading_container">
                 <h2>
-                    Rezervasyon Oluşturun
+                    Rezervasyon Oluştur
                 </h2>
             </div>
             <div class="row">
@@ -34,24 +32,30 @@
                                 <input type="text" class="form-control" placeholder="Telefon Numaranız" asp-for="Phone" />
                             </div>
                             <div>
-                                <input type="email" class="form-control" placeholder="Your Email"asp-for="Mail" />
+                                <input type="email" class="form-control" placeholder="Mail Adresiniz" asp-for="Mail" />
                             </div>
                             <div>
                                 <select class="form-control nice-select wide" asp-for="PersonCount">
                                     <option value="" disabled selected>
                                         Kaç Kişisiniz?
                                     </option>
-                                    <option value="">
+                                    <option value="1">
+                                        1
+                                    </option>
+                                    <option value="2">
                                         2
                                     </option>
-                                    <option value="">
+                                    <option value="3">
                                         3
                                     </option>
-                                    <option value="">
+                                    <option value="4">
                                         4
                                     </option>
-                                    <option value="">
+                                    <option value="5">
                                         5
+                                    </option>
+                                    <option value="6">
+                                        6+
                                     </option>
                                 </select>
                             </div>
@@ -74,12 +78,12 @@
             </div>
         </div>
     </section>
-    <!-- end book section -->
-    <!-- footer section -->
+    
     @await Component.InvokeAsync("_UILayoutFooterComponentPartial")
-    <!-- footer section -->
-    <!-- jQery -->
+
+    
     @await Component.InvokeAsync("_UILayoutScriptComponentPartial")
+
 
 </body>
 

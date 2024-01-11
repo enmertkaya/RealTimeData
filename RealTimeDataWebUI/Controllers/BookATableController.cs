@@ -15,7 +15,8 @@ namespace RealTimeDataWebUI.Controllers
         {
             _httpClientFactory = httpClientFactory;
         }
-        [HttpGet] 
+
+        [HttpGet]
         public IActionResult Index()
         {
             return View();
@@ -24,16 +25,16 @@ namespace RealTimeDataWebUI.Controllers
         [HttpPost]
         public async Task<IActionResult> Index(CreateBookingDto createBookingDto)
         {
-            createBookingDto.PersonCount = 2;
             var client = _httpClientFactory.CreateClient();
             var jsonData = JsonConvert.SerializeObject(createBookingDto);
             StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
             var responseMessage = await client.PostAsync("https://localhost:7021/api/Booking", stringContent);
             if (responseMessage.IsSuccessStatusCode)
             {
-                return RedirectToAction("Index","Default");
+                return RedirectToAction("Index", "Default");
             }
             return View();
         }
+
     }
 }
