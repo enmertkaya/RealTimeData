@@ -18,6 +18,8 @@ namespace RealTimeData.BusinessLayer.Concrete
 			_notificationDal = notificationDal;
 		}
 
+		
+
 		public void TAdd(Notification entity)
 		{
 			_notificationDal.Add(entity);
@@ -26,6 +28,11 @@ namespace RealTimeData.BusinessLayer.Concrete
 		public void TDelete(Notification entity)
 		{
 			_notificationDal.Delete(entity);
+		}
+
+		public List<Notification> TGetAllNotificationByFalse()
+		{
+			return _notificationDal.GetAllNotificationByFalse();
 		}
 
 		public Notification TGetByID(int id)
