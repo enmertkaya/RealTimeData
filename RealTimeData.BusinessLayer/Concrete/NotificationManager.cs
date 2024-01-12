@@ -38,6 +38,11 @@ namespace RealTimeData.BusinessLayer.Concrete
 			return _notificationDal.GetListAll();
 		}
 
+		public int TNotificationCountByStatusFalse()
+		{
+			return _notificationDal.NotificationCountByStatusFalse();
+		}
+
 		public void TUpdate(Notification entity)
 		{
 			_notificationDal.Update(entity);

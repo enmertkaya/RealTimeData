@@ -9,5 +9,6 @@ namespace RealTimeData.BusinessLayer.Abstract
 {
 	public interface INotificationService : IGenericService <Notification>
 	{
+		int TNotificationCountByStatusFalse();
 	}
 }

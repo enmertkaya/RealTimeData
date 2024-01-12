@@ -14,6 +14,13 @@ namespace RealTimeData.DataAccessLayer.EntityFramework
 	{
 		public EfNotificationDal(RealTimeDataContext context) : base(context)
 		{
+
+		}
+
+		public int NotificationCountByStatusFalse()
+		{
+			using var context = new RealTimeDataContext();
+			return context.Notifications.Where(x=>x.Status==false).Count();
 		}
 	}
 }
