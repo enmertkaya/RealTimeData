@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RealTimeData.DataAccessLayer.Concrete;
 
@@ -11,9 +12,10 @@ using RealTimeData.DataAccessLayer.Concrete;
 namespace RealTimeData.DataAccessLayer.Migrations
 {
     [DbContext(typeof(RealTimeDataContext))]
-    partial class RealTimeDataContextModelSnapshot : ModelSnapshot
+    [Migration("20240112131137_aciklama_rez")]
+    partial class aciklama_rez
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
