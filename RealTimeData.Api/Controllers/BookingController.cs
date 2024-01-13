@@ -31,7 +31,8 @@ namespace RealTimeData.Api.Controllers
                 Name = createBookingDto.Name,
                 PersonCount = createBookingDto.PersonCount,
                 Phone = createBookingDto.Phone,
-                Mail = createBookingDto.Mail
+                Mail = createBookingDto.Mail,
+                Description=createBookingDto.Description
             };
             _bookingService.TAdd(booking);
             return Ok("Rezervasyon yapildi");
