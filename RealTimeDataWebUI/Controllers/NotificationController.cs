@@ -80,5 +80,21 @@ namespace RealTimeDataWebUI.Controllers
 			}
 			return View();
 		}
+
+		[HttpGet]
+		public async Task<IActionResult> NotificationStatusChangeToTrue(int id)
+		{
+			var client = _httpClientFactory.CreateClient();
+			await client.GetAsync($"https://localhost:7021/api/Notification/NotificationStatusChangeToTrue/{id}");
+			return RedirectToAction("Index");
+		}
+
+		[HttpGet]
+		public async Task<IActionResult> NotificationStatusChangeToFalse(int id)
+		{
+			var client = _httpClientFactory.CreateClient();
+			await client.GetAsync($"https://localhost:7021/api/Notification/NotificationStatusChangeToFalse/{id}");
+			return RedirectToAction("Index");
+		}
 	}
 }
