@@ -13,18 +13,20 @@ namespace RealTimeData.Api.Hubs
         private readonly IMenuTableService _menuTableService;
         private readonly IBookingService _bookingService;
         private readonly INotificationService _notificationService;
-		public SignalRHub(ICategoryService categoryService, IProductService productService, IOrderService orderService, IMoneyCaseService moneyCaseService, IMenuTableService menuTableService, IBookingService bookingService, INotificationService notificationService)
-		{
-			_categoryService = categoryService;
-			_productService = productService;
-			_orderService = orderService;
-			_moneyCaseService = moneyCaseService;
-			_menuTableService = menuTableService;
-			_bookingService = bookingService;
-			_notificationService = notificationService;
-		}
+        private readonly IMenuTableService _menuTableService1;
+        public SignalRHub(ICategoryService categoryService, IProductService productService, IOrderService orderService, IMoneyCaseService moneyCaseService, IMenuTableService menuTableService, IBookingService bookingService, INotificationService notificationService, IMenuTableService menuTableService1)
+        {
+            _categoryService = categoryService;
+            _productService = productService;
+            _orderService = orderService;
+            _moneyCaseService = moneyCaseService;
+            _menuTableService = menuTableService;
+            _bookingService = bookingService;
+            _notificationService = notificationService;
+            _menuTableService1 = menuTableService1;
+        }
 
-		public async Task SendStatistic()
+        public async Task SendStatistic()
 
         {
             var value=_categoryService.TCategoryCount();
@@ -103,5 +105,10 @@ namespace RealTimeData.Api.Hubs
 
 		}
 
+        public async Task GetMenuTableStatus()
+        {
+            var value = _menuTableService.TGetListAll();
+            await Clients.All.SendAsync("ReceiveMenuTableStatus", value);
+        }
     }
 }
