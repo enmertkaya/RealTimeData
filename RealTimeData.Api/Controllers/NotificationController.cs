@@ -83,5 +83,19 @@ namespace RealTimeData.Api.Controllers
 
 		}
 
+		[HttpGet("NotificationStatusChangeToFalse/{id}")]
+		public IActionResult NotificationStatusChangeToFalse(int id)
+		{
+			_notificationService.TNotificationStatusChangeToFalse(id);
+			return Ok("Güncelleme yapıldı");
+		}
+		[HttpGet("NotificationStatusChangeToTrue/{id}")]
+		public IActionResult NotificationStatusChangeToTrue(int id)
+		{
+			_notificationService.TNotificationStatusChangeToTrue(id);
+			return Ok("Güncelleme yapıldı");
+		}
+
+
 	}
 }

@@ -11,5 +11,7 @@ namespace RealTimeData.BusinessLayer.Abstract
 	{
 		int TNotificationCountByStatusFalse();
 		List<Notification> TGetAllNotificationByFalse();
+		void TNotificationStatusChangeToTrue(int id);
+		void TNotificationStatusChangeToFalse(int id);
 	}
 }

@@ -28,5 +28,21 @@ namespace RealTimeData.DataAccessLayer.EntityFramework
 			using var context = new RealTimeDataContext();
 			return context.Notifications.Where(x=>x.Status==false).Count();
 		}
+
+		public void NotificationStatusChangeToFalse(int id)
+		{
+			using var context = new RealTimeDataContext();
+			var value = context.Notifications.Find(id);
+			value.Status = false;
+			context.SaveChanges();
+		}
+
+		public void NotificationStatusChangeToTrue(int id)
+		{
+			using var context = new RealTimeDataContext();
+			var value = context.Notifications.Find(id);
+			value.Status=true;
+			context.SaveChanges();
+		}
 	}
 }
