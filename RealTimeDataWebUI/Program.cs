@@ -1,3 +1,6 @@
+using RealTimeData.DataAccessLayer.Concrete;
+using RealTimeData.EntityLayer.Entities;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddHttpClient();
@@ -5,6 +8,9 @@ builder.Services.AddHttpClient();
 // Add services to the container.
 builder.Services.AddHttpClient();
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<RealTimeDataContext>();
+builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<RealTimeDataContext>();
+
 
 var app = builder.Build();
 
