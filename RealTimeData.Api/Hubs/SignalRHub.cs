@@ -25,6 +25,7 @@ namespace RealTimeData.Api.Hubs
             _notificationService = notificationService;
             _menuTableService1 = menuTableService1;
         }
+        int clientCount = 0;
 
         public async Task SendStatistic()
 
@@ -114,6 +115,19 @@ namespace RealTimeData.Api.Hubs
         public async Task SendMessage(string user, string message)
         {
             await Clients.All.SendAsync("ReceiveMessage",user,message);
+        }
+
+        public override async Task OnConnectedAsync()
+        {
+            clientCount++;
+            await Clients.All.SendAsync("ReceiveClientCount", clientCount);
+            await base.OnConnectedAsync();
+        }
+        public override async Task OnDisconnectedAsync(Exception? exception)
+        {
+            clientCount--;
+            await Clients.All.SendAsync("ReceiveClientCount", clientCount);
+            await base.OnDisconnectedAsync(exception);
         }
     }
 }
