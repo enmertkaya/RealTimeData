@@ -25,7 +25,8 @@ namespace RealTimeData.Api.Hubs
             _notificationService = notificationService;
             _menuTableService1 = menuTableService1;
         }
-        int clientCount = 0;
+
+        public static int clientCount { get; set; } = 0;
 
         public async Task SendStatistic()
 
