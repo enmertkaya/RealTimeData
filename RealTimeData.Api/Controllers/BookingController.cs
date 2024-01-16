@@ -67,5 +67,20 @@ namespace RealTimeData.Api.Controllers
             var value = _bookingService.TGetByID(id);
             return Ok(value);
         }
-    }
+
+        [HttpGet("BookingStatusApproved/{id}")]
+        public IActionResult BookingStatusApproved(int id)
+        {
+            _bookingService.TBookingStatusApproved(id);
+            return Ok();
+        }
+
+		[HttpGet("BookingStatusCanceled/{id}")]
+		public IActionResult BookingStatusCanceled(int id)
+		{
+			_bookingService.TBookingStatusCanceled(id);
+			return Ok();
+		}
+
+	}
 }

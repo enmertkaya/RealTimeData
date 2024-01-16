@@ -15,5 +15,21 @@ namespace RealTimeData.DataAccessLayer.EntityFramework
         public EfBookingDal(RealTimeDataContext context) : base(context)
         {
         }
-    }
+
+		public void BookingStatusApproved(int id)
+		{
+			using var context = new RealTimeDataContext();
+			var values = context.Bookings.Find(id);
+			values.Description = "Rezervasyon Onaylandi";
+			context.SaveChanges();
+		}
+
+		public void BookingStatusCanceled(int id)
+		{
+			using var context = new RealTimeDataContext();
+			var values = context.Bookings.Find(id);
+			values.Description = "Rezervasyon İptal Edildi";
+			context.SaveChanges();
+		}
+	}
 }
