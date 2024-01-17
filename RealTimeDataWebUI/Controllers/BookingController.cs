@@ -82,6 +82,24 @@ namespace RealTimeDataWebUI.Controllers
 			}
 			return View();
 		}
-	
+
+		public async Task <IActionResult> BookingStatusApproved (int id)
+		{
+
+			var client = _httpClientFactory.CreateClient();
+			await client.GetAsync($"https://localhost:7021/api/Booking/BookingStatusApproved/{id}");
+
+			return RedirectToAction("Index");
+		}
+
+		public async Task<IActionResult> BookingStatusCanceled(int id)
+		{
+
+			var client = _httpClientFactory.CreateClient();
+			await client.GetAsync($"https://localhost:7021/api/Booking/BookingStatusCanceled/{id}");
+
+			return RedirectToAction("Index");
+		}
+
 	}
 }
