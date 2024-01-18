@@ -32,5 +32,12 @@ namespace RealTimeData.DataAccessLayer.EntityFramework
 			value.Status = true;
 			context.SaveChanges();
 		}
-	}
+
+        public List<Discount> GetListByStatusTrue()
+        {
+			using var context = new RealTimeDataContext();
+			var value = context.Discounts.Where(x => x.Status).ToList();
+			return value;
+        }
+    }
 }

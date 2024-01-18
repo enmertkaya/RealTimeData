@@ -19,12 +19,11 @@ namespace RealTimeDataWebUI.ViewComponents.DefaultComponents
         {
             var client = _httpClientFactory.CreateClient();
             var responseMessage = await client.GetAsync("https://localhost:7021/api/About");
-
             var jsonData = await responseMessage.Content.ReadAsStringAsync();
             var values = JsonConvert.DeserializeObject<List<ResultAboutDto>>(jsonData);
             return View(values);
 
-            return View();
+            
         }
     }
 }
