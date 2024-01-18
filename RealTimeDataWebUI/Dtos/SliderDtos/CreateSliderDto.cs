@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace RealTimeDataWebUI.Dtos.SliderDtos
 {
-	public class ResultSliderDto
+	public class CreateSliderDto
 	{
-		public int SliderID { get; set; }
+
 
 		public string Title1 { get; set; }
 		public string Title2 { get; set; }
