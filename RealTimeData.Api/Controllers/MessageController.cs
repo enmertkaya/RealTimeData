@@ -2,12 +2,12 @@
 using Microsoft.AspNetCore.Mvc;
 using RealTimeData.BusinessLayer.Abstract;
 using RealTimeData.DtoLayer.MessageDto;
-
 using RealTimeData.BusinessLayer.Abstract;
 using RealTimeData.DtoLayer.MessageDto;
 using RealTimeData.EntityLayer.Entities;
 
-namespace RealTimeData.Api.Controllers
+
+namespace SignalRApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
