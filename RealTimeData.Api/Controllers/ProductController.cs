@@ -16,7 +16,6 @@ namespace RealTimeData.Api.Controllers
     {
         private readonly IProductService _productService;
         private readonly IMapper _mapper;
-
         public ProductController(IProductService productService, IMapper mapper)
         {
             _productService = productService;
@@ -28,6 +27,66 @@ namespace RealTimeData.Api.Controllers
         {
             var value = _mapper.Map<List<ResultProductDto>>(_productService.TGetListAll());
             return Ok(value);
+        }
+
+        [HttpGet("ProductCount")]
+        public IActionResult ProductCount()
+        {
+            return Ok(_productService.TProductCount());
+        }
+
+        [HttpGet("TotalPriceByDrinkCategory")]
+        public IActionResult TotalPriceByDrinkCategory()
+        {
+            return Ok(_productService.TTotalPriceByDrinkCategory());
+        }
+
+        [HttpGet("TotalPriceBySaladCategory")]
+        public IActionResult TotalPriceBySaladCategory()
+        {
+            return Ok(_productService.TTotalPriceBySaladCategory());
+        }
+
+        [HttpGet("ProductNameByMaxPrice")]
+        public IActionResult ProductNameByMaxPrice()
+        {
+            return Ok(_productService.TProductNameByMaxPrice());
+        }
+
+        [HttpGet("ProductNameByMinPrice")]
+        public IActionResult ProductNameByMinPrice()
+        {
+            return Ok(_productService.TProductNameByMinPrice());
+        }
+
+        [HttpGet("ProductAvgPriceByHamburger")]
+        public IActionResult ProductAvgPriceByHamburger()
+        {
+            return Ok(_productService.TProductAvgPriceByHamburger());
+        }
+
+        [HttpGet("ProductCountByHamburger")]
+        public IActionResult ProductCountByHamburger()
+        {
+            return Ok(_productService.TProductCountByCategoryNameHamburger());
+        }
+
+        [HttpGet("ProductCountByDrink")]
+        public IActionResult ProductCountByDrink()
+        {
+            return Ok(_productService.TProductCountByCategoryNameDrink());
+        }
+
+        [HttpGet("ProductPriceAvg")]
+        public IActionResult ProductPriceAvg()
+        {
+            return Ok(_productService.TProductPriceAvg());
+        }
+
+        [HttpGet("ProductPriceBySteakBurger")]
+        public IActionResult ProductPriceBySteakBurger()
+        {
+            return Ok(_productService.TProductPriceBySteakBurger());
         }
 
         [HttpGet("ProductListWithCategory")]
@@ -53,93 +112,44 @@ namespace RealTimeData.Api.Controllers
             _productService.TAdd(new Product()
             {
                 Description = createProductDto.Description,
-                Price = createProductDto.Price,
                 ImageURL = createProductDto.ImageURL,
+                Price = createProductDto.Price,
                 ProductName = createProductDto.ProductName,
-                ProductStatus = true,
-                CategoryID=createProductDto.CategoryID
+                ProductStatus = createProductDto.ProductStatus,
+                CategoryID = createProductDto.CategoryID
             });
-            return Ok("Urun bilgisi eklendi");
+            return Ok("Ürün Bilgisi Eklendi");
         }
         [HttpDelete("{id}")]
         public IActionResult DeleteProduct(int id)
         {
             var value = _productService.TGetByID(id);
             _productService.TDelete(value);
-            return Ok("Urun bilgisi silindi");
+            return Ok("Ürün Bilgisi Silindi");
         }
-
-
-		[HttpGet("{id}")]
+        [HttpGet("{id}")]
         public IActionResult GetProduct(int id)
-		{
-			var value = _productService.TGetByID(id);
-			{
-				return Ok(value);
-			}
-
-		}
-        [HttpGet("ProductCount")]
-        public IActionResult ProductCount()
         {
-            return Ok(_productService.TProductCount());
+            var value = _productService.TGetByID(id);
+            return Ok(value);
         }
-
-        [HttpGet("ProductAvgPriceByHamburger")]
-        public IActionResult ProductAvgPriceByHamburger()
-        {
-            return Ok(_productService.TProductAvgPriceByHamburger());
-        }
-
-        [HttpGet("ProductNameByMaxPrice")]
-        public IActionResult ProductNameByMaxPrice()
-        {
-            return Ok(_productService.TProductNameByMaxPrice());
-        }
-
-        [HttpGet("ProductNameByMinPrice")]
-        public IActionResult ProductNameByMinPrice()
-        {
-            return Ok(_productService.TProductNameByMinPrice());
-        }
-
-        [HttpGet("ProductPriceAvg")]
-        public IActionResult ProductPriceAvg()
-        {
-            return Ok(_productService.TProductPriceAvg());
-        }
-
-        [HttpGet("ProductCountByHamburger")]
-        public IActionResult ProductCountByHamburger()
-        {
-            return Ok(_productService.TProductCountByCategoryNameHamburger());
-        }
-
-        [HttpGet("ProductCountByDrınk")]
-        public IActionResult ProductCountByDrınk()
-        {
-            return Ok(_productService.TProductCountByCategoryNameDrink());
-        }
-
         [HttpPut]
         public IActionResult UpdateProduct(UpdateProductDto updateProductDto)
         {
             _productService.TUpdate(new Product()
             {
                 Description = updateProductDto.Description,
-                Price = updateProductDto.Price,
                 ImageURL = updateProductDto.ImageURL,
-                ProductID = updateProductDto.ProductID,
+                Price = updateProductDto.Price,
                 ProductName = updateProductDto.ProductName,
                 ProductStatus = updateProductDto.ProductStatus,
-                CategoryID=updateProductDto.CategoryID
-                
+                ProductID = updateProductDto.ProductID,
+                CategoryID = updateProductDto.CategoryID
             });
-            return Ok("Urun bilgisi guncellendi");
+            return Ok("Ürün Bilgisi Güncellendi");
         }
 
-      
 
-       
+
     }
 }
