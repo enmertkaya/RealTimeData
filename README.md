@@ -18,4 +18,6 @@ Kasada ödeme tutarı anlık olarak signalR ile yansımıştır.
 ![2 2](https://github.com/enmertkaya/RealTimeData/assets/151652097/9fa684cf-0f86-446f-805a-9a7b562f9351)
 
 Kullanıcılar uygulama üzerinden indirimli ürünleri görüp sipariş verebilir.
-![Uploading 3.png…]()
+
+![3](https://github.com/enmertkaya/RealTimeData/assets/151652097/aa30dcbf-528d-4713-b605-496f62b1795f)
+
