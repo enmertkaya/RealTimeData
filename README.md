@@ -40,3 +40,6 @@ Kullanıcı yorumları sayfada gözükebilir.
 
 Açılan admin sayfasından giriş yapılır ;
 ![7](https://github.com/enmertkaya/RealTimeData/assets/151652097/1d87986f-9a79-46c0-adec-fe17af0dbd1d)
+
+Gelen admin panelinde sol tarafta bulunan alanlardan istenilen sayfa kontrol edilebilir,
+![8](https://github.com/enmertkaya/RealTimeData/assets/151652097/5205235d-a378-4c47-8666-3d3c4e6c228b)
