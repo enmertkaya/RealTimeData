@@ -32,3 +32,11 @@ Kullanıcılar anlık olarak canlı konuşma ekranını kullanabilir ve istekler
 Kullanıcı yorumları sayfada gözükebilir.
 
 ![6](https://github.com/enmertkaya/RealTimeData/assets/151652097/41df6e07-70e2-4d31-9045-96885dcec309)
+
+
+### 2-Admin / Yönetici Rolü 
+
+:house:​**Admin İşlemleri  :** Yönetici ** İşletme için rezervasyon bilgileri , menüyü ve kategorileri düzenleyebilir , indirimleri düzenler, masa durumlarını ve anlık konuşmayı yönetir , mail gönderebilir , qr kod oluşturabilir.
+
+Açılan admin sayfasından giriş yapılır ;
+![7](https://github.com/enmertkaya/RealTimeData/assets/151652097/1d87986f-9a79-46c0-adec-fe17af0dbd1d)
