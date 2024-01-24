@@ -70,3 +70,5 @@ Admin sayfasından istenilen bir mail gönderilebilir.
 
 
 ***Projeye dair api ve consume işlemleri , mimari ve projenin ilerleme aşaması commitlerde mevcuttur.***
+
+![17](https://github.com/enmertkaya/RealTimeData/assets/151652097/aed9a19f-1c3a-4ff6-a787-693c28b6c91b)
