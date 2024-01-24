@@ -21,3 +21,8 @@ Kullanıcılar uygulama üzerinden indirimli ürünleri görüp sipariş verebil
 
 ![3](https://github.com/enmertkaya/RealTimeData/assets/151652097/aa30dcbf-528d-4713-b605-496f62b1795f)
 
+Kullanıcıların anlık olarak oluşturduğu rezervasyon işlemleri, signalR tarafından admin panelini kontrol eden kişi tarafından anında görüntülenebilir.
+
+![4](https://github.com/enmertkaya/RealTimeData/assets/151652097/ea2629fc-0f65-4c2e-9df4-4e2430581494)
+
+
