@@ -43,3 +43,27 @@ Açılan admin sayfasından giriş yapılır ;
 
 Gelen admin panelinde sol tarafta bulunan alanlardan istenilen sayfa kontrol edilebilir,
 ![8](https://github.com/enmertkaya/RealTimeData/assets/151652097/5205235d-a378-4c47-8666-3d3c4e6c228b)
+
+Yeni rezervasyon oluşturan kullanıcılar için, admin panelini kullanan yöneticiler onay verdiği zaman bildirim olarak panele yansır.
+![9](https://github.com/enmertkaya/RealTimeData/assets/151652097/7d5a0776-3aac-468d-bd38-f04338487c1c)
+
+Menüye dair bilgiler anlık istatistik sayfasında tutulur.Değişen bilgiler signalR ile anlık olarak admin paneline yansır.Burada 6 kategori için görsel paylaşılmıştır.
+![10](https://github.com/enmertkaya/RealTimeData/assets/151652097/d0386f1a-a15e-4d94-8953-5b8042155faa)
+
+Anlık olarak yeni bir kategori girmek istersek istatistik sayfasında kategori sayısının yenilemeye ihtiyac duymadan anında 7 oldugunu gorebiliriz.
+![11](https://github.com/enmertkaya/RealTimeData/assets/151652097/321dd440-b7e6-4c87-9650-7bb8613d9bc0)
+
+İşletmede bulunan masalar için dolu ya da boş olarak giriş yapılabilir.Dolu masalar yeşil, boş masalar kırmızı olarak gözükmektedir.
+![12](https://github.com/enmertkaya/RealTimeData/assets/151652097/c2181224-1ddf-473f-9188-80b035d3ad18)
+
+İşletmeye dair anlık istatistik ve bilgiler burada tutulabilir. İstatistik barları verilerimize göre artıp azalacaktır.
+![13](https://github.com/enmertkaya/RealTimeData/assets/151652097/b6f3e6cd-ee1e-4cf5-97a1-ee5c73c71c65)
+
+Yönetici kişiler admin paneli üstünden bilgilerini güncelleyebilir.
+![14](https://github.com/enmertkaya/RealTimeData/assets/151652097/d6cd5f91-bcc3-4599-b49a-43d1fc78d506)
+
+Admin sayfasından istenilen bir mail gönderilebilir.
+![15](https://github.com/enmertkaya/RealTimeData/assets/151652097/1e97ebd2-833d-4cb9-ac1e-55572988e8eb)
+
+İsteniien masa için QR kod oluşturulabilir. Yapıştırılan QR code ile masaya ait bilgiler ve siparişler kolaylıkla alınabilir.
+![16](https://github.com/enmertkaya/RealTimeData/assets/151652097/ec16e692-82f7-4a52-aed6-8efcdd910154)
