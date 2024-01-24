@@ -25,4 +25,7 @@ Kullanıcıların anlık olarak oluşturduğu rezervasyon işlemleri, signalR ta
 
 ![4](https://github.com/enmertkaya/RealTimeData/assets/151652097/ea2629fc-0f65-4c2e-9df4-4e2430581494)
 
+Kullanıcılar anlık olarak canlı konuşma ekranını kullanabilir ve isteklerini iletebilirler.
+
+![5](https://github.com/enmertkaya/RealTimeData/assets/151652097/b1e46dda-d8f8-44d3-b88d-951b005e73e4)
 
