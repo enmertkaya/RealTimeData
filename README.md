@@ -29,3 +29,6 @@ Kullanıcılar anlık olarak canlı konuşma ekranını kullanabilir ve istekler
 
 ![5](https://github.com/enmertkaya/RealTimeData/assets/151652097/b1e46dda-d8f8-44d3-b88d-951b005e73e4)
 
+Kullanıcı yorumları sayfada gözükebilir.
+
+![6](https://github.com/enmertkaya/RealTimeData/assets/151652097/41df6e07-70e2-4d31-9045-96885dcec309)
