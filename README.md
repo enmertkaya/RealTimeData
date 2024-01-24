@@ -6,3 +6,13 @@ AspNet Core 6.0 ile geliştirdiğim admin ve vitrin panelleri bulunan, içerisin
 Genel olarak kullandığım teknolojiler şu şekildedir.
 
 AspNet Core 6.0, Asp.Net Core Api, SignalR, Swagger, Dto ,N Tier Architecture, MSSQL, İlişkili Tablolar, Html Css Bootstrap, JavaScrip, Ajax, Entity Framework - Linq, Alert, Basket, Rezervasyon İşlemleri, Real-Time Uygulamalar, Real-Time Mesajlaşma, Real-Time İstatistik, Real-Time Bildirim, Mail Gönderme İşlemleri
+
+### 1-Kullanıcı Rolü 
+* :ear: ​**Kullanıcı İşlemleri : Kullanıcı QR code ile tarattığı fotoğraf sonucu menüye erişebilir. Gelen menüden seçimini yapabilir. Yaptığı seçim sonucunda kasa bilgisi eklenir ve ödeme yapabilir.
+
+Kullanıcı 2 id numaralı Steak Burger seçimi yapmıştır.
+![2](https://github.com/enmertkaya/RealTimeData/assets/151652097/d040b0c2-1980-4bc7-845a-f3001b828186)
+
+Kasada ödeme tutarı anlık olarak signalR ile yansımıştır.
+
+![2 2](https://github.com/enmertkaya/RealTimeData/assets/151652097/9fa684cf-0f86-446f-805a-9a7b562f9351)
