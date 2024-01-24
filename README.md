@@ -67,3 +67,6 @@ Admin sayfasından istenilen bir mail gönderilebilir.
 
 İsteniien masa için QR kod oluşturulabilir. Yapıştırılan QR code ile masaya ait bilgiler ve siparişler kolaylıkla alınabilir.
 ![16](https://github.com/enmertkaya/RealTimeData/assets/151652097/ec16e692-82f7-4a52-aed6-8efcdd910154)
+
+
+***Projeye dair api ve consume işlemleri , mimari ve projenin ilerleme aşaması commitlerde mevcuttur.***
